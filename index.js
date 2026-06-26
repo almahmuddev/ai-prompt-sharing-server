@@ -1,0 +1,36 @@
+const express = require("express");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+require("dotenv").config();
+
+const { connectDB } = require("./config/db");
+const jwtRoutes = require("./routes/jwtRoutes");
+const userRoutes = require("./routes/userRoutes");
+
+const app = express();
+const port = process.env.PORT || 5000;
+
+app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+app.use(express.json());
+app.use(cookieParser());
+
+app.get("/", (req, res) => {
+  res.send("AI Prompt Marketplace server is running");
+});
+
+app.use(jwtRoutes);
+app.use(userRoutes);
+// More routes (prompts, reviews, reports, payments, analytics) are added
+// here on Day 2/3/4 — see the roadmap.
+
+async function start() {
+  await connectDB();
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
+}
+
+start().catch((err) => {
+  console.error("Failed to start server:", err);
+  process.exit(1);
+});
