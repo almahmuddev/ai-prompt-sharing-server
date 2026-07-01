@@ -4,6 +4,13 @@ A robust REST API built to power the **prompt_** platform—a marketplace and sh
 
 ---
 
+## 🔗 Live Links
+
+* **Backend API:** [https://ai-prompt-sharing-server.onrender.com](https://ai-prompt-sharing-server.onrender.com)
+* **Frontend Client:** [https://ai-prompt-sharing-client-nine.vercel.app](https://ai-prompt-sharing-client-nine.vercel.app)
+
+---
+
 ## 🚀 Key Features
 
 ### 🛡️ Authentication & Authorization
